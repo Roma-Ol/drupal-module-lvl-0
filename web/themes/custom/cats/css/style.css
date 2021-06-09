@@ -1,0 +1,43 @@
+body {
+  margin-top: 0;
+}
+
+.cats-page-wrapper header {
+  background: #7bd7bb;
+  background: -moz-linear-gradient(180deg, #7bd7bb 86%, rgba(255, 255, 255, 0) 95%);
+  background: -webkit-linear-gradient(180deg, #7bd7bb 86%, rgba(255, 255, 255, 0) 95%);
+  background: linear-gradient(180deg, #7bd7bb 86%, rgba(255, 255, 255, 0) 95%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7bd7bb",endColorstr="#ffffff",GradientType=1);
+  border: none;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: none !important;
+}
+.cats-page-wrapper header .navbar-header {
+  width: 1200px;
+}
+.cats-page-wrapper header .navbar-header .navbar-nav {
+  margin: 0;
+}
+.cats-page-wrapper header .navbar-header .navbar-nav li a {
+  color: #ffffff;
+  font-size: 20px;
+}
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section {
+  width: 100%;
+}
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content {
+  text-align: center;
+  margin: 0 auto;
+}
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .heading-text {
+  margin: 40px 0 0 0;
+  font-weight: 600;
+  font-size: 42px;
+  color: #7bd7bb;
+}
+
+/*# sourceMappingURL=style.css.map */

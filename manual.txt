@@ -1,4 +1,4 @@
-TSK - 1
+TSK - 2
 steps:
  - create folder 4 custom modules -> module folder
  - at ur module folder create modulename.info.yml
@@ -17,5 +17,33 @@ steps:
   	#requirements:
   	#  _permission: 'access content'
  - module folder -> src -> Controller -> FirstPageController.php
+ 	#<?php
+	#/**
+	#* @return
+	#* Contains \Drupal\*modulefolder*\Controller\FirstPageController.
+	#*/
 	
+	#namespace Drupal\*modulefolder*\Controller;
+	#/**
+	#* Provides route responses for the romaroma module.
+	#*/
+	#class FirstPageController {
+
+	#/**
+	#* Returns a simple page.
+	#*
+	#* @return array
+	#*   A simple renderable array.
+	#*/
+	#public function content() {
+	#$element = array(
+	#'#markup' => 'Hello! You can add here a photo of your cat.',
+	#);
+	#return $element;
+	#}
+	#}	
+	
+additional sources:
  - https://drupalbook.org/ru/drupal/123-sozdaem-kastomnyy-drupal-8-modul-vyvod-stranicy-programmno
+ 
+ TSK - 3

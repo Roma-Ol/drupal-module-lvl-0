@@ -1,0 +1,7 @@
+@mixin clr-bg-bradient {
+  background: rgb(123,215,187);
+  background: -moz-linear-gradient(180deg, rgba(123,215,187,1) 86%, rgba(255,255,255,0) 95%);
+  background: -webkit-linear-gradient(180deg, rgba(123,215,187,1) 86%, rgba(255,255,255,0) 95%);
+  background: linear-gradient(180deg, rgba(123,215,187,1) 86%, rgba(255,255,255,0) 95%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7bd7bb",endColorstr="#ffffff",GradientType=1);
+}

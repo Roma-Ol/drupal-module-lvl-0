@@ -18,7 +18,7 @@ class FirstPageController {
 */
 public function content() {
 $element = array(
-'#markup' => 'Hello! You can add here a photo of your cat.',
+'#markup' => '<p class="heading-text">Hello! You can add here a photo of your cat.</p>',
 );
 return $element;
 }

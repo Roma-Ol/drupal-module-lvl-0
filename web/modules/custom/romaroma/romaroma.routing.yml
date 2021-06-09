@@ -2,6 +2,5 @@ romaroma.first_page:
   path: '/romaroma/cats'
   defaults:
     _controller: '\Drupal\romaroma\Controller\FirstPageController::content'
-    _title: 'Hello world'
   requirements:
     _permission: 'access content'
