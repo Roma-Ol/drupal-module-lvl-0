@@ -26,6 +26,8 @@
 # Ignore .env files as they are personal
 /.env
 
+# Ignore txt files
+/.txt
 # Ignore drupal core (if not versioning drupal sources)
 /core
 /vendor

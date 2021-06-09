@@ -1,0 +1,21 @@
+TSK - 1
+steps:
+ - create folder 4 custom modules -> module folder
+ - at ur module folder create modulename.info.yml
+ 	#name: 
+	#description: 
+	#type: module
+	#core_version_requirement: ^8.8.0 || ^9
+	#package: romaroma
+	#version:
+ - then u`ll need a modulename.routing.yml	
+	#modulename.first_page:
+  	#path: '/first-page'
+  	#defaults:
+   	# _controller: '\Drupal\romaroma\Controller\FirstPageController::content'
+   	# _title: 'x'
+  	#requirements:
+  	#  _permission: 'access content'
+ - module folder -> src -> Controller -> FirstPageController.php
+	
+ - https://drupalbook.org/ru/drupal/123-sozdaem-kastomnyy-drupal-8-modul-vyvod-stranicy-programmno
