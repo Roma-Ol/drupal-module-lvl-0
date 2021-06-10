@@ -1,10 +1,12 @@
 @import "mixins";
 @import "variables";
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600;700&display=swap');
 
 body{
   margin-top: 0;
 }
 .cats-page-wrapper {
+  font-family: 'Baloo Tammudu 2', cursive;
   header{
     @include clr-bg-bradient;
     border: none;
@@ -19,6 +21,12 @@ body{
       .navbar-nav{
         margin: 0;
         li{
+          border: 1 px solid $clr-cyan-hover;
+          transition: 0.5s;
+          border-radius: 20px;
+          &:hover{
+            background: $clr-cyan-hover;
+          }
           a{
             color: $clr-white;
             font-size: 20px;
@@ -35,10 +43,46 @@ body{
           text-align: center;
           margin: 0 auto;
           .heading-text{
-            margin: 40px 0 0 0;
+            margin: 40px 0 40px;
+            line-height: 1;
             font-weight: 600;
             font-size: 42px;
-            color: #7bd7bb;
+            color: $clr-cyan;
+          }
+          .form-item{
+            label{
+              font-family: Arial, Helvetica, sans-serif;
+              width: 100%;
+              color: $clr-cyan;
+              font-size: 25px;
+              font-weight: 400;
+              margin-bottom: 20px;
+              line-height: 1;
+              &:after{
+                content: none;
+              }
+            }
+            input{
+              margin: 0 auto;
+              transition: 0.5s;
+              width: 50%;
+              border: 1px solid $clr-cyan;
+              background: rgba(248, 255, 252, 0.68);
+              &:hover, &:active, &:focus{
+                border-radius: 20px;
+              }
+            }
+          }
+          .button{
+            border: none;
+            background: $clr-cyan;
+            padding: 6px 40px;
+            transition: 0.5s;
+            text-transform: uppercase;
+            &:hover{
+              background: $clr-cyan-hover;
+              border-radius: 20px;
+            }
           }
         }
       }
