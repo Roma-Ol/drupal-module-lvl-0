@@ -45,6 +45,27 @@ body {
   text-align: center;
   margin: 0 auto;
 }
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .alert-success, .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .alert-danger {
+  margin: 0 auto;
+  text-align: center;
+  background: white;
+  width: 300px;
+  padding: 15px 35px 10px 10px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  margin-bottom: 20px;
+}
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .alert-success button, .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .alert-danger button {
+  transition: 0.5s;
+}
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .alert-success {
+  color: #33cb9f;
+  border: 1px solid #33cb9f;
+}
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .alert-danger {
+  color: #dc65a7;
+  border: 1px solid #dc65a7;
+}
 .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .heading-text {
   margin: 40px 0 40px;
   line-height: 1;

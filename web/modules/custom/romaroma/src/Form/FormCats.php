@@ -1,7 +1,8 @@
 <?php
 
 namespace Drupal\romaroma\Form;
-use Drupal\Core\Form\FormBase;                   // Базовый класс Form API
+
+use Drupal\Core\Form\FormBase;                         // Базовый класс Form API
 use Drupal\Core\Form\FormStateInterface;              // Класс отвечает за обработку данных
 
 /**
@@ -10,15 +11,7 @@ use Drupal\Core\Form\FormStateInterface;              // Класс отвеча
  */
 class FormCats extends FormBase {
 
-  // метод, который отвечает за саму форму - кнопки, поля
-
-  public function content() {
-    $element = array(
-      '#markup' => '<p class="heading-text">Hello! You can add a photo of your cat here.</p>',
-    );
-    return $element;
-  }
-
+  // method that creates a form
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     $form['#markup'] = '<p class="heading-text">Hello! You can add here a photo of your cat.</p>';
@@ -39,12 +32,20 @@ class FormCats extends FormBase {
     return $form;
   }
 
-  // метод, который будет возвращать название формы
+  // method that returns the form`s name
   public function getFormId() {
-    return 'ex_form_exform_form';
+    return 'romaroma';
   }
 
-  // действия по сабмиту
+  // validation
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    $value = $form_state->getValue('title');
+    if (preg_match('/^[0-9]*$/', $value) || strlen($value)<=2 || strlen($value)>=32) {
+      $form_state->setErrorByName ('title', t('%title `s name isn`t correct, sry.', array('%title' => $value)));
+    }
+  }
+
+  // after submit action
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $title = $form_state->getValue('title');
     \Drupal::messenger()->addMessage(t('Welcome to the club, %title', ['%title' => $title]));

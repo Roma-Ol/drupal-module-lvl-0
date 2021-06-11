@@ -10,13 +10,13 @@ _core:
   default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
 id: cats_messages
 theme: cats
-region: highlighted
-weight: 0
+region: content
+weight: -6
 provider: null
 plugin: system_messages_block
 settings:
   id: system_messages_block
   label: 'Status messages'
   provider: system
-  label_display: '0'
+  label_display: visible
 visibility: {  }
