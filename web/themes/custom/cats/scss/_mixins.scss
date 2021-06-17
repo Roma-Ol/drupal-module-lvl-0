@@ -5,3 +5,34 @@
   background: linear-gradient(180deg, rgba(123,215,187,1) 86%, rgba(255,255,255,0) 95%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7bd7bb",endColorstr="#ffffff",GradientType=1);
 }
+@mixin input-heading-text{
+  label{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    color: $clr-cyan;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: 1;
+    &:after{
+      content: none;
+    }
+  }
+  .input-group{
+    display: flex;
+    justify-content: center;
+    input{
+      margin: 0 auto;
+      transition: 0.5s;
+      width: 50%;
+      border: 1px solid $clr-cyan;
+      background: rgba(248, 255, 252, 0.68);
+      &:hover, &:active, &:focus{
+        border-radius: 20px;
+      }
+    }
+    .input-group-addon{
+      display: none;
+    }
+  }
+}

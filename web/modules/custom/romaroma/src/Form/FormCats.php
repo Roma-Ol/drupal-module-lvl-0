@@ -23,7 +23,7 @@ class FormCats extends FormBase {
 
     $form['title'] = [
       '#type' => 'textfield',
-      '#title' => 'Your cat’s name:',
+      '#title' => t('Your cat’s name:'),
       '#description' => $this->t('A-Z / min-2 / max-32'),
       '#placeholder' => 'Name',
       '#required' => FALSE,
@@ -34,8 +34,8 @@ class FormCats extends FormBase {
     ];
 
     $form['email'] = [
-      '#title' => 'Your Email:',
       '#type' => 'email',
+      '#title' => t('Your Email:'),
       '#description' => $this->t('allowed values: Aa-Zz / _ / -'),
       '#placeholder' => 'Email',
       '#ajax' => [
@@ -43,6 +43,17 @@ class FormCats extends FormBase {
         'event' => 'keyup',
       ],
       '#suffix' => '<div class="email-validation-message"></div>',
+    ];
+
+    $form['image'] = [
+      '#type' => 'managed_file',
+      '#title'=> t('Your puppy image:'),
+      '#description' => 'jpeg/jpg/png/<2MB',
+      '#placeholder' => 'Image',
+      '#upload_validators' =>[
+        'file_validate_extensions' => ['png jpg jpeg'],
+        'file_validate_size' => [2097152],
+      ]
     ];
 
     $form['system_messages'] = [
