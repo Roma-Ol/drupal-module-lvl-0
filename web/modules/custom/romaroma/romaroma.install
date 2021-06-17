@@ -1,0 +1,45 @@
+<?php
+function romaroma_schema() {
+  $schema['romaroma'] = [
+    'description' => 'It stores some user`s info',
+    'fields' => [
+      'id' => [
+        'description' => 'primary identifier for the record',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'title' => [
+        'description' => 'User`s cat name',
+        'type' => 'varchar',
+        'default' => '',
+        'not null' => FALSE,
+        'length' => 64,
+      ],
+      'mail' => [
+        'description' => 'user`s email',
+        'type' => 'varchar',
+        'not null' => FAlSE,
+        'default' => '',
+        'length' => 64,
+      ],
+      'image' => [
+        'description' => 'user`s cat image',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'length' => 64,
+      ],
+      'created' => [
+        'description' => 'user`s cat image',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'length' => 64,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+  return $schema;
+}
+
