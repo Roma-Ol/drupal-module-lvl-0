@@ -50,6 +50,7 @@ class FormCats extends FormBase {
       '#title'=> t('Your puppy image:'),
       '#description' => 'jpeg/jpg/png/<2MB',
       '#placeholder' => 'Image',
+      '#required' => 'TRUE',
       '#upload_validators' =>[
         'file_validate_extensions' => ['png jpg jpeg'],
         'file_validate_size' => [2097152],
