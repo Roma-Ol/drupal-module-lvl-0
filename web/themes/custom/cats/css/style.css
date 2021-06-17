@@ -73,7 +73,26 @@ body {
   font-size: 42px;
   color: #33cb9f;
 }
-.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item label {
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content #form-system-messages {
+  transition: 1s;
+}
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content #form-system-messages .email-ajax-validation-alert {
+  transition: 1s;
+}
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content #form-system-messages .email-ajax-validation-alert .email-ajax-validation-alert-text {
+  width: 300px;
+  height: 47px;
+  color: #dc65a7;
+  border: 1px solid #dc65a7;
+  border-radius: 3px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: 1s;
+}
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-title label, .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-email label {
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
   color: #33cb9f;
@@ -82,18 +101,25 @@ body {
   margin-bottom: 20px;
   line-height: 1;
 }
-.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item label:after {
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-title label:after, .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-email label:after {
   content: none;
 }
-.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item input {
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-title .input-group, .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-email .input-group {
+  display: flex;
+  justify-content: center;
+}
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-title .input-group input, .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-email .input-group input {
   margin: 0 auto;
   transition: 0.5s;
   width: 50%;
   border: 1px solid #33cb9f;
   background: rgba(248, 255, 252, 0.68);
 }
-.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item input:hover, .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item input:active, .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item input:focus {
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-title .input-group input:hover, .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-title .input-group input:active, .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-title .input-group input:focus, .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-email .input-group input:hover, .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-email .input-group input:active, .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-email .input-group input:focus {
   border-radius: 20px;
+}
+.cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-title .input-group .input-group-addon, .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .form-item-email .input-group .input-group-addon {
+  display: none;
 }
 .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .button {
   border: none;

@@ -70,7 +70,26 @@ body{
             font-size: 42px;
             color: $clr-cyan;
           }
-          .form-item{
+          #form-system-messages{
+            transition: 1s;
+            .email-ajax-validation-alert{
+              transition: 1s;
+              .email-ajax-validation-alert-text{
+                width: 300px;
+                height: 47px;
+                color: $clr-dark-pink;
+                border: 1px solid $clr-dark-pink;
+                border-radius: 3px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 20px;
+                transition: 1s;
+              }
+            }
+          }
+          .form-item-title, .form-item-email{
             label{
               font-family: Arial, Helvetica, sans-serif;
               width: 100%;
@@ -83,16 +102,24 @@ body{
                 content: none;
               }
             }
-            input{
-              margin: 0 auto;
-              transition: 0.5s;
-              width: 50%;
-              border: 1px solid $clr-cyan;
-              background: rgba(248, 255, 252, 0.68);
-              &:hover, &:active, &:focus{
-                border-radius: 20px;
+            .input-group{
+              display: flex;
+              justify-content: center;
+              input{
+                margin: 0 auto;
+                transition: 0.5s;
+                width: 50%;
+                border: 1px solid $clr-cyan;
+                background: rgba(248, 255, 252, 0.68);
+                &:hover, &:active, &:focus{
+                  border-radius: 20px;
+                }
+              }
+              .input-group-addon{
+                display: none;
               }
             }
+
           }
           .button{
             border: none;
