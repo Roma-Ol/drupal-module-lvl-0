@@ -8,6 +8,7 @@
 romaroma.formex:
   path: '/romaroma/cats'
   defaults:
-    _form: 'Drupal\romaroma\Form\FormCats'
+#    _form: 'Drupal\romaroma\Form\FormCats'
+    _controller: '\Drupal\romaroma\Controller\FirstPageController::report'
   requirements:
     _permission: 'access content'

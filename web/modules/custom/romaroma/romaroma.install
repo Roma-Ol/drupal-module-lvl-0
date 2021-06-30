@@ -1,10 +1,10 @@
 <?php
 function romaroma_schema() {
   $schema['romaroma'] = [
-    'description' => 'It stores some user`s info',
+    'description' => 'It stores user`s info',
     'fields' => [
       'id' => [
-        'description' => 'primary identifier for the record',
+        'description' => 'record`s identifier',
         'type' => 'serial',
         'unsigned' => TRUE,
         'not null' => TRUE,
@@ -32,9 +32,9 @@ function romaroma_schema() {
       ],
       'created' => [
         'description' => 'user`s cat image',
-        'type' => 'int',
-        'not null' => TRUE,
-        'default' => 0,
+        'type' => 'varchar',
+        'not null' => FALSE,
+        'default' => '',
         'length' => 64,
       ],
     ],

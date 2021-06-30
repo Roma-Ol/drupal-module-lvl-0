@@ -6,6 +6,7 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Ajax\InsertCommand;
 use Drupal\Core\Form\FormBase;
+use Drupal\file\Entity\File;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element\Form;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -19,11 +20,11 @@ class FormCats extends FormBase {
 
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $form['#markup'] = '<p class="heading-text">Hello! You can add here a photo of your cat.</p>';
+    $form['#markup'] = '<p class="heading-text">Hello! You can add a photo of your cat here.</p>';
 
     $form['title'] = [
       '#type' => 'textfield',
-      '#title' => t('Your cat’s name:'),
+      '#title' => t('Your pussy’s name:'),
       '#description' => $this->t('A-Z / min-2 / max-32'),
       '#placeholder' => 'Name',
       '#required' => FALSE,
@@ -47,14 +48,15 @@ class FormCats extends FormBase {
 
     $form['image'] = [
       '#type' => 'managed_file',
-      '#title'=> t('Your puppy image:'),
+      '#title'=> t('Your pussy image:'),
       '#description' => 'jpeg/jpg/png/<2MB',
       '#placeholder' => 'Image',
       '#required' => 'TRUE',
       '#upload_validators' =>[
         'file_validate_extensions' => ['png jpg jpeg'],
         'file_validate_size' => [2097152],
-      ]
+      ],
+      '#upload_location' => 'public://romaroma/'
     ];
 
     $form['system_messages'] = [
@@ -74,7 +76,6 @@ class FormCats extends FormBase {
     ];
     return $form;
   }
-
     //WORKING VARIANT general form validation
     public function validateForm(array &$form, FormStateInterface $form_state) {
       $nameValue = $form_state->getValue('title');
@@ -126,8 +127,26 @@ class FormCats extends FormBase {
       $response->addCommand(new HtmlCommand('#form-system-messages', $messages));
       return $response;
     }
-    // SUBMIT BUTTON
+
+  // SUBMIT BUTTON
     public function submitForm(array &$form, FormStateInterface $form_state) {
+      $form_state->setUserInput([]);
+      $image = $form_state->getValue('image');
+      $file = File::load( $image[0] );
+      $file->setPermanent();
+      $file->save();
+      $data = \Drupal::service('database')->insert('romaroma')
+          ->fields([
+            'title' => $form_state->getValue('title'),
+            'mail' => $form_state->getValue('email'),
+            'image' => $form_state->getValue('image')[0],
+//            'created' => time(),
+            'created' => date('d-m-Y gA:i', time()),
+      ])
+        ->execute();
       \Drupal::messenger()->addMessage($this->t('Form Submitted Successfully'), 'status', TRUE);
-    }
+      $output['admin_filtered_string'] = [
+        '#markup' => '<em>This is filtered using the admin tag list</em>',
+      ];
+  }
 }
