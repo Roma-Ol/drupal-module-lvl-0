@@ -1,14 +1,6 @@
-#romaroma.first_page:
-#  path: '/romaroma/cats'
-#  defaults:
-#    _controller: '\Drupal\romaroma\Controller\FirstPageController::content'
-#  requirements:
-#    _permission: 'access content'
-#
 romaroma.formex:
   path: '/romaroma/cats'
   defaults:
-#    _form: 'Drupal\romaroma\Form\FormCats'
     _controller: '\Drupal\romaroma\Controller\FirstPageController::report'
   requirements:
     _permission: 'access content'

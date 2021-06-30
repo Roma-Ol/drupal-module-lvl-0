@@ -1,0 +1,10 @@
+<?php
+
+//  IMPLEMENTING hook_theme
+function romaroma_theme($existing, $type, $theme, $path) {
+  return [
+    'cat_list' => [
+      'variables' => ['title' => '', 'form' => [], 'content' => [],]
+    ]
+  ];
+}

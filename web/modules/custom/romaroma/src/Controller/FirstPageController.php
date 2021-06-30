@@ -6,23 +6,26 @@
 
 namespace Drupal\romaroma\Controller;
 
-use Drupal;
+//use Drupal;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Database\Database;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\file\Entity\File;
-use Drupal\Core\Url;
+
+//use Drupal\Core\Url;
 /**
  * Provides route responses for the romaroma module.
  */
 
-class FirstPageController extends ControllerBase {
+class FirstPageController extends ControllerBase
+{
 
   //FORMBUILDER INTERFACE
-  protected $formBuilder;
+    protected $formBuilder;
 
   //GETTING THE FORM
-  public static function create(ContainerInterface $container) {
+    public static function create(ContainerInterface $container)
+    {
     $instance = parent::create($container);
     $instance->formBuilder = $container->get('form_builder');
     return $instance;
@@ -56,7 +59,7 @@ class FirstPageController extends ControllerBase {
       t('image'),
       t('created'),
     ];
-
+    $form = $this->build();
     //  decoding the image - from obj to array
     $abra = $this->load();
     $rows = json_decode(json_encode($abra), TRUE);
@@ -85,6 +88,11 @@ class FirstPageController extends ControllerBase {
       '#rows' => $rows,
       '#empty' => t('There are no cats so far'),
     ];
-    return $content;
+
+    return [
+      '#title' => 'some test text for new twig',
+      '#form' => $form,
+      '#content' => $content
+    ];
   }
 }
