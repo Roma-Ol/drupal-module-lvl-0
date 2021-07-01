@@ -1,45 +1,57 @@
 <?php
-/**
- * @return
- * Contains \Drupal\romaroma\Controller\FirstPageController.
- */
 
 namespace Drupal\romaroma\Controller;
 
-//use Drupal;
+// Use Drupal.
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Database\Database;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\file\Entity\File;
 
-//use Drupal\Core\Url;
+// Use Drupal\Core\Url.
+
 /**
  * Provides route responses for the romaroma module.
  */
+class FirstPageController extends ControllerBase {
 
-class FirstPageController extends ControllerBase
-{
+  /**
+   * Formbuilder interface.
+   *
+   * @var
+   */
+  protected $formBuilder;
 
-  //FORMBUILDER INTERFACE
-    protected $formBuilder;
-
-  //GETTING THE FORM
-    public static function create(ContainerInterface $container)
-    {
-    $instance = parent::create($container);
+  /**
+   * Getting the form.
+   *
+   * @inheritDoc
+   */
+  public static function create(ContainerInterface $container) {
+    $instance              = parent::create($container);
     $instance->formBuilder = $container->get('form_builder');
     return $instance;
   }
 
+  /**
+   * Do a specific functional.
+   *
+   * @inheritDoc
+   */
   public function build() {
     $form = $this->formBuilder->getForm('Drupal\romaroma\Form\FormCats');
     return $form;
   }
 
+  /**
+   * Do a specific functional.
+   *
+   * @inheritDoc
+   */
   protected function load() {
     $query = Database::getConnection()->select('romaroma', 'r');
     $query
-      ->fields('r',["title", "mail", "image", "created"])
+      ->fields('r', ["title", "mail", "image", "created"])
       ->orderBy('created', 'DESC');
 
     $entries = $query->execute()->fetchAll();
@@ -47,52 +59,56 @@ class FirstPageController extends ControllerBase
     return $entries;
   }
 
-  //GENERATING THE FORM ON THE PAGE
+  /**
+   * Generating the form on the page.
+   */
   public function report() {
-    $content = [];
-    $content['r'] = $this->build();
+    $content      = [];
+//    $content['r'] = $this->build();
 
-    //  adding headers for the table
+    // Adding headers for the table.
     $formTitle = [
       t('title'),
       t('email'),
       t('image'),
       t('created'),
     ];
-    $form = $this->build();
-    //  decoding the image - from obj to array
+     $form      = $this->build();
+    // Decoding the image - from obj to array.
     $abra = $this->load();
     $rows = json_decode(json_encode($abra), TRUE);
 
     foreach ($rows as $key => $value) {
-      $file = File::load($value['image']);  // loading the image on the page
-      $uri = $file->getFileUri();
-      //  adding the markup to the renderable element
+      // Loading the image on the page.
+      $file = File::load($value['image']);
+      $uri  = $file->getFileUri();
+      // Adding the markup to the renderable element.
       $image = [
-        '#type' => 'image',
-        '#theme' => 'image_style',
+        '#type'       => 'image',
+        '#theme'      => 'image_style',
         '#style_name' => 'large',
-        '#alt' => 'catimg',
-        '#title' => 'catimage',
-        '#uri' => $uri,
+        '#alt'        => 'catimg',
+        '#title'      => 'catimage',
+        '#uri'        => $uri,
       ];
-      //  rendering the image
-      $renderer = \Drupal::service('renderer')->render($image);
+      // Rendering the image.
+      $renderer            = \Drupal::service('renderer')->render($image);
       $rows[$key]['image'] = $renderer;
 
     }
-    //  displaying the table with data
+    // Displaying the table with data.
     $content['table'] = [
-      '#type' => 'table',
+      '#type'   => 'table',
       '#header' => $formTitle,
-      '#rows' => $rows,
-      '#empty' => t('There are no cats so far'),
+      '#rows'   => $rows,
+      '#empty'  => t('There are no cats so far'),
     ];
 
     return [
-      '#title' => 'some test text for new twig',
-      '#form' => $form,
-      '#content' => $content
+      '#theme' => 'cat_list',
+      '#form'    => $form,
+      '#content' => $content,
     ];
   }
+
 }

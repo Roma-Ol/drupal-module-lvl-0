@@ -1,0 +1,22 @@
+uuid: 1a540990-4d2b-4c3a-bec2-de594accb414
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cats
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: cats_messages
+theme: cats
+region: content
+weight: -6
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: visible
+visibility: {  }

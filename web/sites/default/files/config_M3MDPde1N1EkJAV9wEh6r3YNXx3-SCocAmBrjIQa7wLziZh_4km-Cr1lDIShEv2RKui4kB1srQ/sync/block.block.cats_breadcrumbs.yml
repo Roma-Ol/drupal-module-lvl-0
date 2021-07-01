@@ -1,0 +1,22 @@
+uuid: 9431d309-b59d-4414-84a1-2cb76eb92a51
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cats
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: cats_breadcrumbs
+theme: cats
+region: navigation
+weight: -7
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }
