@@ -167,10 +167,85 @@ body {
   padding: 6px 40px;
   transition: 0.5s;
   text-transform: uppercase;
+  margin: 15px;
 }
 .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .button:hover {
   background: #2bbb92;
   border-radius: 20px;
+}
+
+.db-row-content {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px;
+}
+.db-row-content:nth-child(odd) {
+  background: white;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #dffff1 2%, #dffff1 98%, rgba(255, 255, 255, 0) 100%);
+}
+.db-row-content .db-table-field-image img {
+  height: 270px;
+  width: 270px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.db-row-content .db-table-field-image img:hover {
+  opacity: 0.7;
+}
+.db-row-content .db-table-entered-data {
+  width: 40%;
+  text-align: left;
+}
+.db-row-content .db-table-entered-data .db-table-field {
+  font-size: 20px;
+}
+
+@media (max-width: 775px) {
+  .cats-page-wrapper {
+    font-family: "Baloo Tammudu 2", cursive;
+  }
+  .cats-page-wrapper header {
+    background: none;
+  }
+  .cats-page-wrapper header .navbar-header .navbar-nav li {
+    border: 1 px solid #2bbb92;
+    border-collapse: separate;
+    transition: 0.5s;
+    border-radius: 20px;
+    margin-top: 5px;
+  }
+  .cats-page-wrapper header .navbar-header .navbar-nav li:hover {
+    background: #2bbb92;
+  }
+  .cats-page-wrapper header .navbar-header .navbar-nav li a {
+    text-align: center;
+    color: #2bbb92;
+    font-size: 20px;
+  }
+  .cats-page-wrapper header .navbar-header .navbar-nav li a:hover {
+    color: white;
+  }
+  .cats-page-wrapper .db-table-field-image img {
+    height: 200px;
+    width: 200px;
+  }
+  .cats-page-wrapper .db-table-entered-data .db-table-field {
+    font-size: 15px;
+  }
+}
+@media (max-width: 525px) {
+  .cats-page-wrapper .db-row-content {
+    flex-direction: column;
+  }
+  .cats-page-wrapper .db-table-entered-data {
+    margin-top: 10px;
+    width: 90%;
+    text-align: center;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

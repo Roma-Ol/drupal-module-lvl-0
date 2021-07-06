@@ -63,9 +63,8 @@ class FirstPageController extends ControllerBase {
    * Generating the form on the page.
    */
   public function report() {
-    $content      = [];
-//    $content['r'] = $this->build();
-
+    $content = [];
+    // $content['r'] = $this->build();
     // Adding headers for the table.
     $formTitle = [
       t('title'),
@@ -73,7 +72,7 @@ class FirstPageController extends ControllerBase {
       t('image'),
       t('created'),
     ];
-     $form      = $this->build();
+    $form = $this->build();
     // Decoding the image - from obj to array.
     $abra = $this->load();
     $rows = json_decode(json_encode($abra), TRUE);
@@ -91,9 +90,11 @@ class FirstPageController extends ControllerBase {
         '#title'      => 'catimage',
         '#uri'        => $uri,
       ];
+      $value['images'] = file_url_transform_relative(file_create_url($file->getFileUri()));
       // Rendering the image.
-      $renderer            = \Drupal::service('renderer')->render($image);
+      $renderer = \Drupal::service('renderer')->render($image);
       $rows[$key]['image'] = $renderer;
+      $rows[$key]['image_url'] = $value['images'];
 
     }
     // Displaying the table with data.
@@ -107,7 +108,7 @@ class FirstPageController extends ControllerBase {
     return [
       '#theme' => 'cat_list',
       '#form'    => $form,
-      '#content' => $content,
+      '#content' => $rows,
     ];
   }
 

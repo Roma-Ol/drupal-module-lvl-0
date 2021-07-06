@@ -139,6 +139,7 @@ body{
             padding: 6px 40px;
             transition: 0.5s;
             text-transform: uppercase;
+            margin: 15px;
             &:hover{
               background: $clr-cyan-hover;
               border-radius: 20px;
@@ -146,6 +147,92 @@ body{
           }
         }
       }
+    }
+  }
+}
+.db-row-content{
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px;
+  &:nth-child(odd){
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(223,255,241,1) 2%, rgba(223,255,241,1) 98%, rgba(255,255,255,0) 100%);
+  }
+  .db-table-field-image{
+    img{
+      height: 270px;
+      width: 270px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover{
+        opacity: 0.7;
+      }
+    }
+  }
+  .db-table-entered-data{
+    width: 40%;
+    text-align: left;
+    .db-table-field{
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 775px) {
+  .cats-page-wrapper {
+    font-family: 'Baloo Tammudu 2', cursive;
+    header {
+      background: none;
+      .navbar-header{
+        .navbar-nav{
+          li{
+            border: 1 px solid $clr-cyan-hover;
+            border-collapse: separate;
+            transition: 0.5s;
+            border-radius: 20px;
+            margin-top: 5px;
+            &:hover{
+              background: $clr-cyan-hover;
+            }
+            a{
+              text-align: center;
+              color: $clr-cyan-hover;
+              font-size: 20px;
+              &:hover{
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+    .db-table-field-image{
+      img{
+        height: 200px;
+        width: 200px;
+      }
+    }
+    .db-table-entered-data{
+      .db-table-field{
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 525px) {
+  .cats-page-wrapper {
+    .db-row-content{
+      flex-direction: column;
+    }
+    .db-table-entered-data{
+      margin-top: 10px;
+      width: 90%;
+      text-align: center;
     }
   }
 }

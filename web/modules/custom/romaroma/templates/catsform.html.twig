@@ -1,29 +1,22 @@
-<!DOCTYPE html>
+{{ attach_library('romaroma/romaroma-style') }}
+<div class="cats-page-content-wrapper">
+    <div class="form">
+        {{ form }}
+    </div>
 
-<div class="form">
-    {{ form }}
+    <div class="db-table-content">
+    {% for i in content %}
+    <div class="db-row-content">
+        <div class="db-table-field db-table-field-image">
+            <a target="_blank" href="{{ i.image_url }}" >{{ i.image }}</a>
+        </div>
+
+        <div class="db-table-entered-data">
+            <div class="db-table-field db-table-field-name">{{ 'This kitty name is: '|trans }} {{ i.title }}</div>
+            <div class="db-table-field db-table-field-email">{{ 'Owner`s email: '|trans }}{{ i.mail }}</div>
+            <div class="db-table-field db-table-field-email">{{ 'Date of publication: '|trans }} {{ i.created }}</div>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
 </div>
-{#<div class="main-content">#}
-{#    <div class="main-form">#}
-{#        <div class="main-form-heading">#}
-{#            <p class="heading-text">Hello! You can add a photo of your cat here.</p>#}
-{#        </div>#}
-{#        <div class="main-form-field-title">#}
-{#            {{ form.title }}#}
-{#        </div>#}
-{#        <div class="main-form-field-email">#}
-{#            {{ form.email }}#}
-{#        </div>#}
-{#        <div class="main-form-field-image">#}
-{#            {{ form.image }}#}
-{#        </div>#}
-{#        <div class="main-form-block-4-system-message">#}
-{#            {{ form.system_messages }}#}
-{#        </div>#}
-{#        <div class="main-form-button-submit">#}
-{#            {{ form.submit }}#}
-{#        </div>#}
-{#    </div>#}
-
-
-{#</div>#}

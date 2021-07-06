@@ -1,0 +1,4 @@
+romaroma-style:
+  css:
+    theme:
+      css/custom.css: {}

@@ -173,7 +173,7 @@ class FormCats extends FormBase {
         'title' => $form_state->getValue('title'),
         'mail' => $form_state->getValue('email'),
         'image' => $form_state->getValue('image')[0],
-        'created' => date('d-m-Y gA:i', time()),
+        'created' => date('d-m-Y H:i:s', time()),
       ])
       ->execute();
     \Drupal::messenger()->addMessage($this->t('Form Submitted Successfully'), 'status', TRUE);
