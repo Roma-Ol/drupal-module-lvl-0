@@ -7,6 +7,8 @@ use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Form\FormBase;
 use Drupal\file\Entity\File;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Ajax;
+use Drupal\Core\Ajax\OpenModalDialogCommand;
 
 // Use Drupal\Core\Ajax\InsertCommand;
 // Use Drupal\Core\Render\Element\Form;
@@ -38,9 +40,7 @@ class FormCats extends FormBase {
    * @inheritDoc
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-
-//    $form['#markup'] = '<p class="heading-text">Hello! You can add a photo of your cat here.</p>';
-
+    $form['#attached']['library'][] = 'core/drupal.dialog.ajax';
     $form['title'] = [
       '#type' => 'textfield',
       '#title' => t('Your kitty name:'),
@@ -167,6 +167,7 @@ class FormCats extends FormBase {
     $image = $form_state->getValue('image');
     $file = File::load($image[0]);
     $file->setPermanent();
+    $form_state->setRedirect('/module.docksal/romaroma/cats');
     $file->save();
     $data = \Drupal::service('database')->insert('romaroma')
       ->fields([

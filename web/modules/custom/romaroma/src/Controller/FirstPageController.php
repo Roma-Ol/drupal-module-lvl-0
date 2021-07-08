@@ -2,13 +2,13 @@
 
 namespace Drupal\romaroma\Controller;
 
-// Use Drupal.
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Database\Database;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\file\Entity\File;
 
-// Use Drupal\Core\Url.
+// Use Drupal;    .
+// Use Drupal\Core\Url;   .
 
 /**
  * Provides route responses for the romaroma module.
@@ -48,10 +48,15 @@ class FirstPageController extends ControllerBase {
    *
    * @inheritDoc
    */
+  public function delete() {
+    $formdelete = $this->formBuilder->getForm('\Drupal\liutia\Form\CatDeleteForm');
+    return $formdelete;
+  }
+
   protected function load() {
     $query = Database::getConnection()->select('romaroma', 'r');
     $query
-      ->fields('r', ["title", "mail", "image", "created"])
+      ->fields('r', ["title", "mail", "image", "created", "id"])
       ->orderBy('created', 'DESC');
 
     $entries = $query->execute()->fetchAll();
@@ -63,9 +68,6 @@ class FirstPageController extends ControllerBase {
    * Generating the form on the page.
    */
   public function report() {
-    $content = [];
-    // $content['r'] = $this->build();
-    // Adding headers for the table.
     $formTitle = [
       t('title'),
       t('email'),

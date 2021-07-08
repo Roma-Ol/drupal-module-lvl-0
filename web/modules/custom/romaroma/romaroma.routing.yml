@@ -4,3 +4,10 @@ romaroma.formex:
     _controller: '\Drupal\romaroma\Controller\FirstPageController::report'
   requirements:
     _permission: 'access content'
+romaroma.deleteCat:
+  path: '/romaroma/deleteKitty/{id}'
+  defaults:
+    _form: '\Drupal\romaroma\Form\DeleteCatForm'
+    _title: 'R U sure u wanna delete this cuttie?'
+  requirements:
+    _permission: 'administer nodes'

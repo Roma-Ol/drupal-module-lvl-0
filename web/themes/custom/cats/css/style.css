@@ -27,12 +27,12 @@ body {
   margin: 0;
 }
 .cats-page-wrapper header .navbar-header .navbar-nav li {
-  border: 1 px solid #2bbb92;
+  border: 1 px solid #229c79;
   transition: 0.5s;
   border-radius: 20px;
 }
 .cats-page-wrapper header .navbar-header .navbar-nav li:hover {
-  background: #2bbb92;
+  background: #229c79;
 }
 .cats-page-wrapper header .navbar-header .navbar-nav li a {
   color: #ffffff;
@@ -170,7 +170,7 @@ body {
   margin: 15px;
 }
 .cats-page-wrapper .cats-page-main-content .row:nth-child(1) section .region-content .button:hover {
-  background: #2bbb92;
+  background: #229c79;
   border-radius: 20px;
 }
 
@@ -203,6 +203,41 @@ body {
 .db-row-content .db-table-entered-data .db-table-field {
   font-size: 20px;
 }
+.db-row-content .db-table-entered-data .db-table-buttons {
+  list-style-type: none;
+  display: flex;
+  width: 80%;
+}
+.db-row-content .db-table-entered-data .db-table-buttons .db-table-button {
+  text-transform: uppercase;
+  width: 132px;
+  height: 32px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  color: #ffffff;
+}
+.db-row-content .db-table-entered-data .db-table-buttons .db-table-button:hover {
+  border-radius: 20px;
+}
+.db-row-content .db-table-entered-data .db-table-buttons .db-table-button-edit {
+  margin-right: 10px;
+  background: #33cb9f;
+}
+.db-row-content .db-table-entered-data .db-table-buttons .db-table-button-edit:hover {
+  background: #229c79;
+}
+.db-row-content .db-table-entered-data .db-table-buttons .db-table-button-delete {
+  background: #dc65a7;
+}
+.db-row-content .db-table-entered-data .db-table-buttons .db-table-button-delete:hover {
+  background: #aa447d;
+}
+.db-row-content .db-table-entered-data .db-table-buttons a:hover {
+  text-decoration: none;
+}
 
 @media (max-width: 775px) {
   .cats-page-wrapper {
@@ -212,18 +247,18 @@ body {
     background: none;
   }
   .cats-page-wrapper header .navbar-header .navbar-nav li {
-    border: 1 px solid #2bbb92;
+    border: 1 px solid #229c79;
     border-collapse: separate;
     transition: 0.5s;
     border-radius: 20px;
     margin-top: 5px;
   }
   .cats-page-wrapper header .navbar-header .navbar-nav li:hover {
-    background: #2bbb92;
+    background: #229c79;
   }
   .cats-page-wrapper header .navbar-header .navbar-nav li a {
     text-align: center;
-    color: #2bbb92;
+    color: #229c79;
     font-size: 20px;
   }
   .cats-page-wrapper header .navbar-header .navbar-nav li a:hover {

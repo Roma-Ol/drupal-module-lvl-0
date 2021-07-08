@@ -179,6 +179,43 @@ body{
     .db-table-field{
       font-size: 20px;
     }
+    .db-table-buttons{
+      list-style-type: none;
+      display: flex;
+      width: 80%;
+      //border: 0.5px solid red;
+      .db-table-button{
+        text-transform: uppercase;
+        //border: 0.5px solid blue;
+        width: 132px;
+        height: 32px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+        color: $clr-white;
+        &:hover{
+          border-radius: 20px;
+        }
+      }
+      .db-table-button-edit{
+        margin-right: 10px;
+        background: $clr-cyan;
+        &:hover{
+          background: $clr-cyan-hover;
+        }
+      }
+      .db-table-button-delete{
+        background: $clr-dark-pink;
+        &:hover{
+          background: $clr-dark-pink-hover;
+        }
+      }
+      a:hover{
+        text-decoration: none;
+      }
+    }
   }
 }
 
