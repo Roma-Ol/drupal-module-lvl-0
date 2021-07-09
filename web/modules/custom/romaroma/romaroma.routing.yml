@@ -10,4 +10,4 @@ romaroma.deleteCat:
     _form: '\Drupal\romaroma\Form\DeleteCatForm'
     _title: 'R U sure u wanna delete this cuttie?'
   requirements:
-    _permission: 'administer nodes'
+    _permission: 'access content'

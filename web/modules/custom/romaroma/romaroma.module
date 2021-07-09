@@ -9,7 +9,7 @@
 function romaroma_theme($existing, $type, $theme, $path) {
   return [
     'cat_list' => [
-      'variables' => ['title' => '', 'form' => [], 'content' => [],],
+      'variables' => ['title' => '', 'form' => [], 'content' => [], 'getDest' => []],
       'template' => 'catsform',
     ]
   ];

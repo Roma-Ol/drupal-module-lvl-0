@@ -167,8 +167,10 @@ class FormCats extends FormBase {
     $image = $form_state->getValue('image');
     $file = File::load($image[0]);
     $file->setPermanent();
-    $form_state->setRedirect('/module.docksal/romaroma/cats');
+    $form_state->setRedirect('/romaroma/cats');
     $file->save();
+    $value = $this->getDestinationArray();
+    $let = $value["destination"];
     $data = \Drupal::service('database')->insert('romaroma')
       ->fields([
         'title' => $form_state->getValue('title'),

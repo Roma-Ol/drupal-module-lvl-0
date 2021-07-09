@@ -25,14 +25,6 @@ class DeleteCatForm extends ConfirmFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, string $id = NULL) {
     $this->id = $id;
-    $form['delete'] = [
-      '#type' => 'submit',
-      '#value' => t('Delete this kitty'),
-      '#ajax' => [
-        'callback' => '::action',
-        'event' => 'click',
-      ],
-    ];
     return parent::buildForm($form, $form_state);
   }
 
@@ -45,13 +37,6 @@ class DeleteCatForm extends ConfirmFormBase {
     $query = \Drupal::database()->delete('romaroma');
     $query->condition('id', $this->id);
     $query->execute();
-  }
-
-  public function action(array &$form, FormStateInterface $form_state) {
-    $response = new AjaxResponse();
-    $currentURL = Url::fromRoute('romaroma.cats');
-    $response->addCommand(new RedirectCommand($currentURL->toString()));
-    return $response;
   }
 
   /**
@@ -72,7 +57,7 @@ class DeleteCatForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function getQuestion() {
-    return $this->t('Do you want to delete %id?', ['%id' => $this->id]);
+    return $this->t('Do you want to delete this kitty?');
   }
 
 }

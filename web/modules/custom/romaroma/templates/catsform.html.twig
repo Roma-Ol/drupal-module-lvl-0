@@ -20,7 +20,7 @@
             <div class="db-table-buttons">
                 {% if user.hasPermission('administer nodes') %}
                     <a class="db-table-button db-table-button-edit">Edit</a>
-                    <a href='/romaroma/deleteKitty/{{ i.id }}' class="db-table-button db-table-button-delete use-ajax" data-dialog-type="modal">Delete</a>
+                    <a href='/romaroma/deleteKitty/{{ i.id }}?destination={{ getDest }}' class="db-table-button db-table-button-delete use-ajax" data-dialog-type="modal">Delete</a>
                 {% endif %}
             </div>
         </div>

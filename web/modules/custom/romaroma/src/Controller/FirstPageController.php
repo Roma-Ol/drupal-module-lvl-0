@@ -107,10 +107,14 @@ class FirstPageController extends ControllerBase {
       '#empty'  => t('There are no cats so far'),
     ];
 
+    $value = $this->getDestinationArray();
+    $let = $value["destination"];
+
     return [
       '#theme' => 'cat_list',
       '#form'    => $form,
       '#content' => $rows,
+      '#getDest' => $let,
     ];
   }
 
