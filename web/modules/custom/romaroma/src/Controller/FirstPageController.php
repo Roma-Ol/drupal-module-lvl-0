@@ -49,7 +49,7 @@ class FirstPageController extends ControllerBase {
    * @inheritDoc
    */
   public function delete() {
-    $formdelete = $this->formBuilder->getForm('\Drupal\liutia\Form\CatDeleteForm');
+    $formdelete = $this->formBuilder->getForm('\Drupal\romaroma\Form\CatDeleteForm');
     return $formdelete;
   }
 
