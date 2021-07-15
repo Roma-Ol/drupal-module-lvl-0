@@ -7,6 +7,8 @@ use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Form\FormBase;
 use Drupal\file\Entity\File;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Ajax\RedirectCommand;
+
 use Drupal\Core\Ajax;
 use Drupal\Core\Ajax\OpenModalDialogCommand;
 
@@ -143,21 +145,15 @@ class FormCats extends FormBase {
   /**
    * Submit button action - ajax.
    */
-  public function ajaxSubmitCallback(array &$form, FormStateInterface $form_state) {
+  public function ajaxSubmitCallback (array &$form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
-    $message = [
-      '#theme' => 'status_messages',
-      '#message_list' => $this->messenger()->all(),
-      '#status_headings' => [
-        'status' => t('Status message'),
-        'error' => t('Error message'),
-        'warning' => t('Warning message'),
-      ],
-    ];
-    $messages = \Drupal::service('renderer')->render($message);
-    $response->addCommand(new HtmlCommand('#form-system-messages', $messages));
+    if ($form_state->hasAnyErrors()) {
+      return $response;
+    }
+    $response->addCommand(new RedirectCommand('/romaroma/cats'));
     return $response;
   }
+
 
   /**
    * Submit button action.
@@ -167,7 +163,7 @@ class FormCats extends FormBase {
     $image = $form_state->getValue('image');
     $file = File::load($image[0]);
     $file->setPermanent();
-    $form_state->setRedirect('/romaroma/cats');
+    $form_state->setRedirect('romaroma.formex');
     $file->save();
     $value = $this->getDestinationArray();
     $let = $value["destination"];

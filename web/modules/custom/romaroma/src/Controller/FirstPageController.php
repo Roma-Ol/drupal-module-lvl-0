@@ -4,6 +4,7 @@ namespace Drupal\romaroma\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Database\Database;
+use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\file\Entity\File;
 
@@ -43,16 +44,6 @@ class FirstPageController extends ControllerBase {
     return $form;
   }
 
-  /**
-   * Do a specific functional.
-   *
-   * @inheritDoc
-   */
-  public function delete() {
-    $formdelete = $this->formBuilder->getForm('\Drupal\liutia\Form\CatDeleteForm');
-    return $formdelete;
-  }
-
   protected function load() {
     $query = Database::getConnection()->select('romaroma', 'r');
     $query
@@ -68,6 +59,7 @@ class FirstPageController extends ControllerBase {
    * Generating the form on the page.
    */
   public function report() {
+    \Drupal::service('page_cache_kill_switch')->trigger();
     $formTitle = [
       t('title'),
       t('email'),
@@ -85,19 +77,19 @@ class FirstPageController extends ControllerBase {
       $uri  = $file->getFileUri();
       // Adding the markup to the renderable element.
       $image = [
-        '#type'       => 'image',
-        '#theme'      => 'image_style',
-        '#style_name' => 'large',
+        '#theme'      => 'image',
         '#alt'        => 'catimg',
         '#title'      => 'catimage',
         '#uri'        => $uri,
       ];
       $value['images'] = file_url_transform_relative(file_create_url($file->getFileUri()));
-      // Rendering the image.
+//      $uri = str_replace("public", "base", $uri);
+//      $value['images'] = Url::fromUri($uri)->toString();
+      $value['images'] = str_replace("styles/large/public/", "", $value['images']);
+      //       Rendering the image.
       $renderer = \Drupal::service('renderer')->render($image);
       $rows[$key]['image'] = $renderer;
       $rows[$key]['image_url'] = $value['images'];
-
     }
     // Displaying the table with data.
     $content['table'] = [
