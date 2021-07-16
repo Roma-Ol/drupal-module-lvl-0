@@ -1,0 +1,6 @@
+romaroma.admin_settings:
+  title: 'romaroma module settings'
+  description: 'work on catform settings'
+  route_name: romaroma.admin_setting
+  parent: system.admin_structure
+  weight: 10

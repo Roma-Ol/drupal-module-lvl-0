@@ -55,6 +55,7 @@ class FirstPageController extends ControllerBase {
     return $entries;
   }
 
+
   /**
    * Generating the form on the page.
    */

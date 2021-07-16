@@ -154,7 +154,6 @@ class FormCats extends FormBase {
     return $response;
   }
 
-
   /**
    * Submit button action.
    */

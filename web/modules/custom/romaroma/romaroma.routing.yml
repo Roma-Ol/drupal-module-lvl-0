@@ -24,3 +24,12 @@ romaroma.editCat:
     _permission: 'access content'
   options:
     no_cache: 'TRUE'
+
+romaroma.admin_setting:
+  path: '/admin/structure/cats'
+  defaults:
+#    _form: '\Drupal\romaroma\Form\SettingsForm'
+    _controller: 'Drupal\romaroma\Controller\AdminPageController::getCatList'
+    _title: 'RomaRoma module settings'
+  requirements:
+    _permission: 'administer nodes'
