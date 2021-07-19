@@ -78,7 +78,7 @@ class EditCatForm extends FormBase {
       '#description' => 'jpeg/jpg/png/<2MB',
       '#placeholder' => 'Image',
       '#required' => 'TRUE',
-      '#default_value' => $data[0]->Image,
+      '#default_value' => [$data[0]->image],
       '#upload_validators' => [
         'file_validate_extensions' => ['png jpg jpeg'],
         'file_validate_size' => [2097152],

@@ -28,8 +28,27 @@ romaroma.editCat:
 romaroma.admin_setting:
   path: '/admin/structure/cats'
   defaults:
-#    _form: '\Drupal\romaroma\Form\SettingsForm'
     _controller: 'Drupal\romaroma\Controller\AdminPageController::getCatList'
     _title: 'RomaRoma module settings'
   requirements:
     _permission: 'administer nodes'
+
+romaroma.editCatAdmin:
+  path: '/admin/structure/editKitty/{id}'
+  defaults:
+    _form: '\Drupal\romaroma\Form\EditCatFormAdmin'
+    _title: 'R U sure u wanna edit this cuttie?'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+
+romaroma.deleteCatAdmin:
+  path: '/admin/structure/delete-cat/{id}'
+  defaults:
+    _form: '\Drupal\romaroma\Form\DeleteCatFormAdmin'
+    _title: 'R U sure u wanna delete this cuttie?'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'

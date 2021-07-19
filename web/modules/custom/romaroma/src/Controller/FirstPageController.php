@@ -2,14 +2,10 @@
 
 namespace Drupal\romaroma\Controller;
 
-use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Database\Database;
-use Drupal\Core\Url;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\file\Entity\File;
-
-// Use Drupal;    .
-// Use Drupal\Core\Url;   .
+use Drupal\Core\Database\Database;
+use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides route responses for the romaroma module.
@@ -17,7 +13,7 @@ use Drupal\file\Entity\File;
 class FirstPageController extends ControllerBase {
 
   /**
-   * Formbuilder interface.
+   * Short description.
    *
    * @var
    */
@@ -55,7 +51,6 @@ class FirstPageController extends ControllerBase {
     return $entries;
   }
 
-
   /**
    * Generating the form on the page.
    */
@@ -84,10 +79,10 @@ class FirstPageController extends ControllerBase {
         '#uri'        => $uri,
       ];
       $value['images'] = file_url_transform_relative(file_create_url($file->getFileUri()));
-//      $uri = str_replace("public", "base", $uri);
-//      $value['images'] = Url::fromUri($uri)->toString();
+      // $uri = str_replace("public", "base", $uri);
+      // $value['images'] = Url::fromUri($uri)->toString();
       $value['images'] = str_replace("styles/large/public/", "", $value['images']);
-      //       Rendering the image.
+      // Rendering the image.
       $renderer = \Drupal::service('renderer')->render($image);
       $rows[$key]['image'] = $renderer;
       $rows[$key]['image_url'] = $value['images'];

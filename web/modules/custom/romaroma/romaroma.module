@@ -6,6 +6,7 @@
  *  IMPLEMENTING hook_theme.
  *
  */
+// Theme 4 main form.
 function romaroma_theme($existing, $type, $theme, $path) {
   return [
     'cat_list' => [
