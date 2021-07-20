@@ -9,13 +9,6 @@ use Drupal\file\Entity\File;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\RedirectCommand;
 
-use Drupal\Core\Ajax;
-use Drupal\Core\Ajax\OpenModalDialogCommand;
-
-// Use Drupal\Core\Ajax\InsertCommand;
-// Use Drupal\Core\Render\Element\Form;
-// Use Symfony\Component\HttpFoundation\JsonResponse;
-// Use function Drupal\Tests\Core\Render\callback;.
 
 /**
  * Class FormCats.

@@ -5,8 +5,6 @@ namespace Drupal\romaroma\Form;
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
-use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\RedirectCommand;
 
 /**
  * Defines a confirmation form to confirm deletion of something by id.
