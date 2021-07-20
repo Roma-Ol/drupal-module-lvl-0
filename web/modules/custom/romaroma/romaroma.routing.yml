@@ -28,7 +28,7 @@ romaroma.editCat:
 romaroma.admin_setting:
   path: '/admin/structure/cats'
   defaults:
-    _controller: 'Drupal\romaroma\Controller\AdminPageController::getCatList'
+    _form: 'Drupal\romaroma\Controller\AdminPageController'
     _title: 'RomaRoma module settings'
   requirements:
     _permission: 'administer nodes'

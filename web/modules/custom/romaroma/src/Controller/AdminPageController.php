@@ -2,12 +2,19 @@
 
 namespace Drupal\romaroma\Controller;
 
-use Drupal\Core\Controller\ControllerBase;
 use Drupal\file\Entity\File;
+use Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\FormStateInterface;
 
-class AdminPageController extends ControllerBase {
+class AdminPageController extends FormBase {
 
-  public function getCatList() {
+  protected $id;
+
+  public function getFormId() {
+    return 'formCatsAdmin';
+  }
+
+  public function buildForm(array $form, FormStateInterface $form_state) {
     $query = \Drupal::database();
     $result = $query->select('romaroma', 'r')
       ->fields('r', ['id', 'title', 'mail', 'Image', 'created'])
@@ -16,8 +23,8 @@ class AdminPageController extends ControllerBase {
     $data = [];
 
     foreach ($result as $row) {
-      $data[] = [
-        'image' => [
+      $data[$row->id] = [
+        [
           'data' => [
             '#theme'      => 'image',
             '#alt'        => 'catImg',
@@ -25,34 +32,46 @@ class AdminPageController extends ControllerBase {
             '#width'      => 100,
           ],
         ],
-        'title' => $row->title,
-        'mail' => $row->mail,
-        'created' => $row->created,
-        'edit' => t("<a href='editKitty/$row->id' class='db-table-button 
+        $row->id,
+        $row->title,
+        $row->mail,
+        $row->created,
+        t("<a href='editKitty/$row->id' class='db-table-button 
         db-table-button-edit use-ajax' data-dialog-type='modal'>Edit</a>"),
-        'delete' => t("<a href='delete-cat/$row->id' class='db-table-button
+        t("<a href='delete-cat/$row->id' class='db-table-button
         db-table-button-edit use-ajax' data-dialog-type='modal'>Delete</a>"),
       ];
     }
-//
-//    $arrayX = array_values($data);
 
     $header = [
-      t('image'), t('Name'), t('Email'), t('Created'),
-      t('Edit'), t('Delete'),
+      t('image'), t('id'), t('Name'), t('Email'),
+      t('Created'), t('Edit'), t('Delete'),
     ];
 
     $build['table'] = [
       '#type' => 'tableselect',
       '#header' => $header,
-      '#rows' => $data,
+      '#options' => $data,
+    ];
+
+    $build['submit'] = [
+      '#type' => 'submit',
+      '#name' => 'submit',
+      '#value' => $this->t('Delete'),
     ];
 
     return [
       $build,
-      '#theme' => 'admin_romaroma_theme',
-      '#title' => 'list of the cats',
+      '#title' => 'List of the cats',
     ];
+  }
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    $values = $form_state->getValue('table');
+    $delete = array_filter($values);
+    $query = \Drupal::database()->delete('romaroma')
+      ->condition('id', $delete, 'IN')
+      ->execute();
+    $this->messenger()->addStatus($this->t("Succesfully deleted"));
   }
 
 }
