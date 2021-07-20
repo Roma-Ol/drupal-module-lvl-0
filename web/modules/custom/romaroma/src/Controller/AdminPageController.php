@@ -58,6 +58,7 @@ class AdminPageController extends FormBase {
       '#type' => 'submit',
       '#name' => 'submit',
       '#value' => $this->t('Delete'),
+      '#attributes' => array('onclick' => 'if(!confirm("Are your sure?")){return false;}'),
     ];
 
     return [
@@ -68,10 +69,14 @@ class AdminPageController extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValue('table');
     $delete = array_filter($values);
-    $query = \Drupal::database()->delete('romaroma')
-      ->condition('id', $delete, 'IN')
-      ->execute();
-    $this->messenger()->addStatus($this->t("Succesfully deleted"));
+    if ($values == NULL) {
+      $this->messenger()->addStatus($this->t("Choose something to delete"));
+    } else {
+      $query = \Drupal::database()->delete('romaroma')
+        ->condition('id', $delete, 'IN')
+        ->execute();
+      $this->messenger()->addStatus($this->t("Succesfully deleted"));
+    }
   }
 
 }
